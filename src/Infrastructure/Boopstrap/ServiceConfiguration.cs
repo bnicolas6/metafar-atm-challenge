@@ -11,6 +11,7 @@ namespace Metafar.ATM.Challenge.Infrastructure.Boopstrap
             IConfiguration configuration) 
         {
             services.ConfigureSQLServer(configuration);
+            services.ConfigureMemoryCache(configuration);
 
             return services;
         }
