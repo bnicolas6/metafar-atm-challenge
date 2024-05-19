@@ -28,7 +28,7 @@ namespace Metafar.ATM.Challenge.API.Controllers
         /// </summary>
         /// <param name="login"></param>
         /// <returns></returns>
-        [HttpPost("/login")]
+        [HttpPost("/api/login")]
         [ProducesResponseType(typeof(LoginCmdResponse), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(List<ApiError>), StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(List<ApiError>), StatusCodes.Status401Unauthorized)]

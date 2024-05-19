@@ -1,4 +1,5 @@
 ﻿using Metafar.ATM.Challenge.Application.UseCase.Login;
+using Metafar.ATM.Challenge.Domain.Settings;
 using Metafar.ATM.Challenge.Infrastructure.Boopstrap.Providers;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
@@ -13,12 +14,15 @@ namespace Metafar.ATM.Challenge.Infrastructure.Boopstrap
             this IServiceCollection services, 
             IConfiguration configuration) 
         {
+            services.Configure<LoginSettings>(configuration.GetSection(key: nameof(LoginSettings)));
+
+
+
             var applicationAssembly = typeof(LoginCmd).Assembly;
 
             services.ConfigureMediatR(applicationAssembly);
             services.ConfigureDataBaseWriting(configuration);
             services.ConfigureDataBaseReadOnly(configuration);
-            services.ConfigureFluentValidation(applicationAssembly);
             services.ConfigureAuthentication(configuration);
             services.ConfigureMemoryCache(configuration);
             services.ConfigureSwagger();

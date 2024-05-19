@@ -28,7 +28,7 @@ namespace Metafar.ATM.Challenge.Common.Http
         private IActionResult ProcessResultOnSuccess<T>(ApiResponse<T> response)
             where T : class
         {
-            return new JsonResult(response.Errors)
+            return new JsonResult(response.Content)
             {
                 StatusCode = (int)response.HttpStatusCode
             };

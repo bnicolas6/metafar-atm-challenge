@@ -109,7 +109,7 @@ namespace Metafar.ATM.Challenge.Application.UseCase.Login
                 {
                     new ApiError
                     {
-                        PropertyName = nameof(LoginCmd.NumeroDeTarjeta),
+                        PropertyName = nameof(LoginCmd.Pin),
                         Message = CuentaErrorMessage.TARJETA_FAIL_ATTEMPT
                     }
                 }
@@ -181,7 +181,7 @@ namespace Metafar.ATM.Challenge.Application.UseCase.Login
                 {
                     new ApiError
                     {
-                        PropertyName = nameof(LoginCmd.NumeroDeTarjeta),
+                        PropertyName = nameof(LoginCmd.Pin),
                         Message = message
                     }
                 }

@@ -1,11 +1,8 @@
-﻿using MediatR;
+﻿using FluentValidation;
+using MediatR;
 using Metafar.ATM.Challenge.Infrastructure.Behaviors;
 using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
-using FluentValidation.AspNetCore;
-using FluentValidation;
-using Metafar.ATM.Challenge.Application.UseCase.Login;
-using Metafar.ATM.Challenge.Common.Http.Response;
 
 namespace Metafar.ATM.Challenge.Infrastructure.Boopstrap.Providers
 {
@@ -20,10 +17,18 @@ namespace Metafar.ATM.Challenge.Infrastructure.Boopstrap.Providers
                 config.RegisterServicesFromAssembly(applicationAssembly);
             });
 
-            //services.AddValidatorsFromAssemblyContaining<LoginCmdValidator>();
-            //services.AddValidatorsFromAssembly(applicationAssembly);
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
             services.AddValidatorsFromAssembly(applicationAssembly);
+
+            ValidatorOptions.Global.DisplayNameResolver = (type, member, expression) =>
+            {
+                if (member != null)
+                {
+                    return member.Name;
+                }
+                return null;
+            };
+
             return services;
         }
     }

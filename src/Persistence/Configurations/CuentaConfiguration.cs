@@ -71,7 +71,7 @@ namespace Metafar.ATM.Challenge.Persistence.Configurations
                     Saldo = 925040.50M,
                     NumeroDeTarjeta = "8877665544332211",
                     Pin = "4321",
-                    EstadoTarjetaId = (byte)EEstadoTarjeta.Activo,
+                    EstadoTarjetaId = (byte)EEstadoTarjeta.Bloqueado,
                     ActualizadoPor = 2,
                     ActualizadoEn = DateTime.UtcNow
                 },
