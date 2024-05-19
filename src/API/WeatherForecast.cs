@@ -1,3 +1,5 @@
+using System;
+
 namespace Metafar.ATM.Challenge.API
 {
     public class WeatherForecast

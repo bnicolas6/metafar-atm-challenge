@@ -10,9 +10,11 @@ namespace Metafar.ATM.Challenge.Infrastructure.Boopstrap
             this IServiceCollection services, 
             IConfiguration configuration) 
         {
-            services.ConfigureSQLServer(configuration);
+            services.ConfigureAuthentication(configuration);
             services.ConfigureMemoryCache(configuration);
-
+            services.ConfigureSQLServer(configuration);
+            services.ConfigureSwagger();
+                      
             return services;
         }
     }
