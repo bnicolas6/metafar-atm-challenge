@@ -1,4 +1,5 @@
 using Metafar.ATM.Challenge.Infrastructure.Boopstrap;
+using Metafar.ATM.Challenge.Infrastructure.Middlewares;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -20,6 +21,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+app.UseMiddleware<ValidationExceptionHandlerMiddleware>();
 
 app.UseHttpsRedirection();
 

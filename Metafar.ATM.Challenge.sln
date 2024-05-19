@@ -15,6 +15,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Metafar.ATM.Challenge.Infra
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Metafar.ATM.Challenge.Persistence", "src\Persistence\Metafar.ATM.Challenge.Persistence.csproj", "{31C9A428-FF16-4B06-B355-715EE0518778}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Metafar.ATM.Challenge.Common", "src\Common\Metafar.ATM.Challenge.Common.csproj", "{1459E4F2-A86C-4AC7-85E5-EB56AB109D73}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,6 +43,10 @@ Global
 		{31C9A428-FF16-4B06-B355-715EE0518778}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{31C9A428-FF16-4B06-B355-715EE0518778}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{31C9A428-FF16-4B06-B355-715EE0518778}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1459E4F2-A86C-4AC7-85E5-EB56AB109D73}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1459E4F2-A86C-4AC7-85E5-EB56AB109D73}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1459E4F2-A86C-4AC7-85E5-EB56AB109D73}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1459E4F2-A86C-4AC7-85E5-EB56AB109D73}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -51,6 +57,7 @@ Global
 		{C611F732-ADB2-4F2A-970F-1D507D4D8F30} = {8232B72A-5ACD-47F6-8EAB-C5842A75CAE2}
 		{A3ABD1BF-3BE6-415E-8BC0-0B06D0E53FCE} = {8232B72A-5ACD-47F6-8EAB-C5842A75CAE2}
 		{31C9A428-FF16-4B06-B355-715EE0518778} = {8232B72A-5ACD-47F6-8EAB-C5842A75CAE2}
+		{1459E4F2-A86C-4AC7-85E5-EB56AB109D73} = {8232B72A-5ACD-47F6-8EAB-C5842A75CAE2}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F9330E66-4971-47CB-90E9-6601ECE66D88}
