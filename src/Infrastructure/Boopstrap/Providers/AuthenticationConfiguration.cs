@@ -42,16 +42,3 @@ namespace Metafar.ATM.Challenge.Infrastructure.Boopstrap.Providers
         }
     }
 }
-/*
-             var parameters = new TokenValidationParameters
-            {
-                ValidateIssuer = true,
-                ValidateAudience = true,
-                ValidateLifetime = true,
-                ValidateIssuerSigningKey = true,
-                ValidIssuer = _configuration["JwtTokenSettings:Issuer"],
-                ValidAudience = _configuration["JwtTokenSettings:Audience"],
-                IssuerSigningKey = new SymmetricSecurityKey(key)
-            };
- 
- */
