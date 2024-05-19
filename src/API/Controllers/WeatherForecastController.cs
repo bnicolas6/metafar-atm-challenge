@@ -1,7 +1,11 @@
 using Metafar.ATM.Challenge.Domain.Interfaces;
-using Metafar.ATM.Challenge.Domain.Settings;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Options;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Metafar.ATM.Challenge.API.Controllers
 {
@@ -16,13 +20,22 @@ namespace Metafar.ATM.Challenge.API.Controllers
 
         private readonly ILogger<WeatherForecastController> _logger;
         private readonly IMemoryCacheRepository _memoryCacheRepository;
+        private readonly ITokenGenerator _tokenGenerator;
+        private readonly IConfiguration _configuration;
+
         private string KEY = "A";
         private int LIMITE = 3;
 
-        public WeatherForecastController(ILogger<WeatherForecastController> logger, IMemoryCacheRepository memoryCacheRepository)
+        public WeatherForecastController(
+            ILogger<WeatherForecastController> logger, 
+            IMemoryCacheRepository memoryCacheRepository, 
+            ITokenGenerator tokenGenerator,
+            IConfiguration configuration)
         {
             _logger = logger;
             _memoryCacheRepository = memoryCacheRepository;
+            _tokenGenerator = tokenGenerator;
+            _configuration = configuration;
         }
 
         [HttpGet(Name = "GetWeatherForecast")]
@@ -53,7 +66,29 @@ namespace Metafar.ATM.Challenge.API.Controllers
             })
             .ToArray();
         }
+
+        [HttpPost(Name = "GetWeatherForecast2")]
+        public string GetJwt()
+        {
+            var response = _tokenGenerator.GenerateToken(new Dictionary<string, string>
+            {
+                { "NumeroDeTarjeta", "1234567890X" }
+            });
+
+            return response;
+        }
+
+        [HttpPatch(Name = "GetWeatherForecast3")]
+        [Authorize]
+        public IActionResult OtroGet()
+        {
+            var numeroDeTarjeta = User.GetNumeroDeTarjetaClaim();
+
+            return Ok($"Token JWT válido, numeroDeTarjeta: ${numeroDeTarjeta}");
+        }
     }
+
+
 
     public class Contador
     {
