@@ -4,6 +4,7 @@ using Metafar.ATM.Challenge.Persistence;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Metafar.ATM.Challenge.Persistence.Migrations
 {
     [DbContext(typeof(ATMDbContext))]
-    partial class ATMDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240519211516_Registros_Usuarios_Cuentas_EstadosTarjetas")]
+    partial class Registros_Usuarios_Cuentas_EstadosTarjetas
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

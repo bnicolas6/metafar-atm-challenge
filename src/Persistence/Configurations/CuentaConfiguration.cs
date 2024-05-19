@@ -1,4 +1,5 @@
 ﻿using Metafar.ATM.Challenge.Domain.Entities;
+using Metafar.ATM.Challenge.Domain.Enums;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -50,6 +51,41 @@ namespace Metafar.ATM.Challenge.Persistence.Configurations
 
             builder.HasIndex(c => c.NumeroDeTarjeta)
                 .IsUnique();
+
+            builder.HasData(
+                new Cuenta
+                {
+                    CuentaId = 1,
+                    UsuarioId = 1,
+                    Saldo = 1400500.25M,
+                    NumeroDeTarjeta = "1122334455667788",
+                    Pin = "1234",
+                    EstadoTarjetaId = (byte)EEstadoTarjeta.Activo,
+                    ActualizadoPor = 1,
+                    ActualizadoEn = DateTime.UtcNow
+                },
+                new Cuenta
+                {
+                    CuentaId = 2,
+                    UsuarioId = 2,
+                    Saldo = 925040.50M,
+                    NumeroDeTarjeta = "8877665544332211",
+                    Pin = "4321",
+                    EstadoTarjetaId = (byte)EEstadoTarjeta.Activo,
+                    ActualizadoPor = 2,
+                    ActualizadoEn = DateTime.UtcNow
+                },
+                new Cuenta
+                {
+                    CuentaId = 3,
+                    UsuarioId = 3,
+                    Saldo = 125475.25M,
+                    NumeroDeTarjeta = "9955660044773311",
+                    Pin = "1111",
+                    EstadoTarjetaId = (byte)EEstadoTarjeta.Activo,
+                    ActualizadoPor = 3,
+                    ActualizadoEn = DateTime.UtcNow
+                });
         }
     }
 }
