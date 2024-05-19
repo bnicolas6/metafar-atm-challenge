@@ -1,0 +1,285 @@
+{
+	"info": {
+		"_postman_id": "4c5894d9-d3dc-49fb-abcf-87ef8d8324c4",
+		"name": "Metafar-ATM-Challenge_collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26207395"
+	},
+	"item": [
+		{
+			"name": "API_Login",
+			"item": [
+				{
+					"name": "1-ERROR_NumeroDeTarjeta_No_Ingresado",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"pin\": \"1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{EnvironmentUrl}}/api/login",
+							"host": [
+								"{{EnvironmentUrl}}"
+							],
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "2-ERROR_NumeroDeTarjeta_Tamaño_incorrecto",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"numeroDeTarjeta\": \"112233445566778899\",\r\n  \"pin\": \"1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{EnvironmentUrl}}/api/login",
+							"host": [
+								"{{EnvironmentUrl}}"
+							],
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "3-ERROR_NumeroDeTarjeta_No_numerico",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"numeroDeTarjeta\": \"ABCDEFGHIJKLMNOP\",\r\n  \"pin\": \"1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{EnvironmentUrl}}/api/login",
+							"host": [
+								"{{EnvironmentUrl}}"
+							],
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "4-ERROR_PIN_No_Ingresado",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"numeroDeTarjeta\": \"1122334455667788\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{EnvironmentUrl}}/api/login",
+							"host": [
+								"{{EnvironmentUrl}}"
+							],
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "5-ERROR_PIN_Tamaño_incorrecto",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"numeroDeTarjeta\": \"1122334455667788\",\r\n  \"pin\": \"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{EnvironmentUrl}}/api/login",
+							"host": [
+								"{{EnvironmentUrl}}"
+							],
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "6-ERROR_PIN_No_numerico",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"numeroDeTarjeta\": \"1122334455667788\",\r\n  \"pin\": \"ABCD\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{EnvironmentUrl}}/api/login",
+							"host": [
+								"{{EnvironmentUrl}}"
+							],
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "7-ERROR_Cuenta_no_encontrada",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"numeroDeTarjeta\": \"1122994455667788\",\r\n  \"pin\": \"1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{EnvironmentUrl}}/api/login",
+							"host": [
+								"{{EnvironmentUrl}}"
+							],
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "8-ERROR_Tarjeta_bloqueada",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"numeroDeTarjeta\": \"8877665544332211\",\r\n  \"pin\": \"1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{EnvironmentUrl}}/api/login",
+							"host": [
+								"{{EnvironmentUrl}}"
+							],
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "9-ERROR_NumeroDeTarjeta_PIN_no_coincidencia",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"numeroDeTarjeta\": \"9955660044773311\",\r\n  \"pin\": \"1112\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{EnvironmentUrl}}/api/login",
+							"host": [
+								"{{EnvironmentUrl}}"
+							],
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "10-ERROR_NumeroDeTarjeta_PIN_coincidencia",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"numeroDeTarjeta\": \"9955660044773311\",\r\n  \"pin\": \"1111\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{EnvironmentUrl}}/api/login",
+							"host": [
+								"{{EnvironmentUrl}}"
+							],
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

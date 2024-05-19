@@ -4,6 +4,7 @@ using Metafar.ATM.Challenge.Persistence;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Metafar.ATM.Challenge.Persistence.Migrations
 {
     [DbContext(typeof(ATMDbContext))]
-    partial class ATMDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240519211516_Registros_Usuarios_Cuentas_EstadosTarjetas")]
+    partial class Registros_Usuarios_Cuentas_EstadosTarjetas
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -74,7 +76,7 @@ namespace Metafar.ATM.Challenge.Persistence.Migrations
                         new
                         {
                             CuentaId = 1,
-                            ActualizadoEn = new DateTime(2024, 5, 19, 22, 5, 50, 632, DateTimeKind.Utc).AddTicks(326),
+                            ActualizadoEn = new DateTime(2024, 5, 19, 21, 15, 16, 678, DateTimeKind.Utc).AddTicks(71),
                             ActualizadoPor = 1,
                             EstadoTarjetaId = (byte)1,
                             NumeroDeTarjeta = "1122334455667788",
@@ -85,9 +87,9 @@ namespace Metafar.ATM.Challenge.Persistence.Migrations
                         new
                         {
                             CuentaId = 2,
-                            ActualizadoEn = new DateTime(2024, 5, 19, 22, 5, 50, 632, DateTimeKind.Utc).AddTicks(328),
+                            ActualizadoEn = new DateTime(2024, 5, 19, 21, 15, 16, 678, DateTimeKind.Utc).AddTicks(74),
                             ActualizadoPor = 2,
-                            EstadoTarjetaId = (byte)2,
+                            EstadoTarjetaId = (byte)1,
                             NumeroDeTarjeta = "8877665544332211",
                             Pin = "4321",
                             Saldo = 925040.50m,
@@ -96,7 +98,7 @@ namespace Metafar.ATM.Challenge.Persistence.Migrations
                         new
                         {
                             CuentaId = 3,
-                            ActualizadoEn = new DateTime(2024, 5, 19, 22, 5, 50, 632, DateTimeKind.Utc).AddTicks(329),
+                            ActualizadoEn = new DateTime(2024, 5, 19, 21, 15, 16, 678, DateTimeKind.Utc).AddTicks(75),
                             ActualizadoPor = 3,
                             EstadoTarjetaId = (byte)1,
                             NumeroDeTarjeta = "9955660044773311",

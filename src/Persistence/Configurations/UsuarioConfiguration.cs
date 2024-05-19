@@ -17,6 +17,23 @@ namespace Metafar.ATM.Challenge.Persistence.Configurations
                     .IsRequired()
                     .HasMaxLength(20)
                     .IsUnicode(false);
+
+            builder.HasData(
+                new Usuario 
+                { 
+                    UsuarioId = 1,
+                    Nombre = "Harry"
+                }, 
+                new Usuario 
+                {
+                    UsuarioId = 2,
+                    Nombre = "Hermione"
+                },
+                new Usuario 
+                {   
+                    UsuarioId = 3,
+                    Nombre = "Ron"
+                });
         }
     }
 }
