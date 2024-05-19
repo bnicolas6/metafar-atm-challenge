@@ -46,13 +46,13 @@ namespace Metafar.ATM.Challenge.Application.UseCase.Login
                 if (cuenta == null)
                     return CuentaNotFound();
 
+                if (IsBlockedCuenta(cuenta))
+                    return GetTarjetaBlockedResponse(CuentaErrorMessage.TARJETA_WAS_BLOCKED);
+
                 if (!IsValidPin(cuenta, request.Pin))
                     return await GetFailedAttemptsResponse(
                         cuenta, 
                         request.NumeroDeTarjeta);
-
-                if (IsBlockedCuenta(cuenta))
-                    return GetTarjetaBlockedResponse(CuentaErrorMessage.TARJETA_WAS_BLOCKED);
 
                 ResetFailedAttempts(request.NumeroDeTarjeta);
 
@@ -150,8 +150,6 @@ namespace Metafar.ATM.Challenge.Application.UseCase.Login
             return loginAttempts.Attempts == _loginSettings.NumberOfFailedAttemptsToBlock;
         }
 
-
-        //Bloquear
         private async Task BlockTarjeta(Cuenta cuenta)
         {
             cuenta.EstadoTarjetaId = (byte)EEstadoTarjeta.Bloqueado;
