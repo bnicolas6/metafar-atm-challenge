@@ -1,4 +1,6 @@
 ﻿using MediatR;
+using Metafar.ATM.Challenge.API.ViewModels;
+using Metafar.ATM.Challenge.Application.UseCase.ExtractSaldo;
 using Metafar.ATM.Challenge.Application.UseCase.GetSaldo;
 using Metafar.ATM.Challenge.Application.UseCase.Login;
 using Metafar.ATM.Challenge.Common.Http;
@@ -31,13 +33,32 @@ namespace Metafar.ATM.Challenge.API.Controllers
         /// <param name="login"></param>
         /// <returns></returns>
         [HttpGet("saldo")]
-        [ProducesResponseType(typeof(LoginCmdResponse), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(GetSaldoQryResponse), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(List<ATMError>), StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> GetSaldoAsync()
         {
             var numeroDeTarjeta = User.GetNumeroDeTarjetaClaim();
 
             var request = new GetSaldoQry(numeroDeTarjeta);
+            var response = await _mediator.Send(request);
+
+            return ProcessResult(response);
+        }
+
+        /// <summary>
+        /// Extraer saldo de una cuenta
+        /// </summary>
+        /// <param name="login"></param>
+        /// <returns></returns>
+        [HttpPost("extraer-saldo")]
+        [ProducesResponseType(typeof(GetSaldoQryResponse), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(List<ATMError>), StatusCodes.Status502BadGateway)]
+        [ProducesResponseType(typeof(List<ATMError>), StatusCodes.Status500InternalServerError)]
+        public async Task<IActionResult> ExtractSaldoAsync([FromBody] ExtractViewModel extract)
+        {
+            var numeroDeTarjeta = User.GetNumeroDeTarjetaClaim();
+
+            var request = new ExtractSaldoCmd(numeroDeTarjeta, extract.Monto);
             var response = await _mediator.Send(request);
 
             return ProcessResult(response);

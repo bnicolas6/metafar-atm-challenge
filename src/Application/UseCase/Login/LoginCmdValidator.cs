@@ -13,7 +13,7 @@ namespace Metafar.ATM.Challenge.Application.UseCase.Login
 
                  .Must(numero => !string.IsNullOrWhiteSpace(numero))
                  .WithMessage(string.Format(
-                    CommonErrorMessage.IS_REQUIRED,
+                    CommonErrorMessage.IS_REQUIRED_STRING,
                     "{PropertyName}"))
 
                  .Must(numero => numero.Length == Constants.NUMERO_DE_TARJETA_LENGTH)
@@ -34,7 +34,7 @@ namespace Metafar.ATM.Challenge.Application.UseCase.Login
 
                  .Must(pin => !string.IsNullOrWhiteSpace(pin))
                  .WithMessage(string.Format(
-                    CommonErrorMessage.IS_REQUIRED,
+                    CommonErrorMessage.IS_REQUIRED_STRING,
                     "{PropertyName}"))
 
                  .Must(pin => pin.Length == Constants.PIN_LENGTH)
