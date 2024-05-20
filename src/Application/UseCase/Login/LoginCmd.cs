@@ -4,7 +4,7 @@ using System.Net;
 
 namespace Metafar.ATM.Challenge.Application.UseCase.Login
 {
-    public class LoginCmd : IRequest<ApiResponse<LoginCmdResponse>>
+    public class LoginCmd : IRequest<ATMResponse<LoginCmdResponse>>
     {
         public string NumeroDeTarjeta { get; set; }
         public string Pin { get; set; }

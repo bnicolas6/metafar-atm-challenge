@@ -280,6 +280,38 @@
 					"response": []
 				}
 			]
+		},
+		{
+			"name": "API_Get_Saldo",
+			"item": [
+				{
+					"name": "1-Consultar_Saldo",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJOdW1lcm9EZVRhcmpldGEiOiIxMTIyMzM0NDU1NjY3Nzg4IiwibmJmIjoxNzE2MTczMjE5LCJleHAiOjE3MTYxNzY4MTksImlhdCI6MTcxNjE3MzIxOSwiaXNzIjoiQVRNIiwiYXVkIjoiVXNlclRlcm1pbmFsIn0.ltdK80t0dwVO4oM6jEF7EEfNJPmya7LdyfgDtyTc1Q4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{EnvironmentUrl}}/saldo",
+							"host": [
+								"{{EnvironmentUrl}}"
+							],
+							"path": [
+								"saldo"
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		}
 	]
 }

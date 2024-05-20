@@ -1,5 +1,7 @@
 ﻿using Dapper;
+using Metafar.ATM.Challenge.Domain.Enums;
 using Metafar.ATM.Challenge.Domain.Interfaces.Queries;
+using Metafar.ATM.Challenge.Domain.QryResults;
 using System.Data;
 
 namespace Metafar.ATM.Challenge.Persistence.Queries
@@ -13,22 +15,44 @@ namespace Metafar.ATM.Challenge.Persistence.Queries
             _connection = connection;
         }
 
-        private const string NUMERO_DE_TARJETA_AND_PIN_MATCH = $@"
-            SELECT 1
-            FROM Cuentas
-            WHERE NumeroDeTarjeta = @NumeroDeTarjeta AND Pin = @Pin
+        private const string GET_SALDO = $@"
+            SELECT 
+                C.CuentaId,
+	            C.NumeroDeCuenta,
+	            C.Saldo,
+                O.FechaUltimaExtraccion,
+	            U.UsuarioId,
+	            U.Nombre
+            FROM 
+                Cuentas C
+            INNER JOIN Usuarios U
+             ON C.UsuarioId = U.UsuarioId
+            LEFT JOIN 
+                (
+                    SELECT
+			            O.CuentaId,
+                        MAX(Fecha) AS FechaUltimaExtraccion			
+                    FROM 
+                        Operaciones O
+                    WHERE 
+                        TipoOperacionId = @TipoOperacionId
+                    GROUP BY 
+                        O.CuentaId
+                ) o ON C.CuentaId = O.CuentaId
+            WHERE 
+                C.NumeroDeTarjeta = @NumeroDeTarjeta
         ";
 
-        public async Task<bool> ExistsMatchBetweenTarjetaAndPinAsync(
+        public async Task<GetCuentaSaldoQryResult> GetSaldoAsync(
             string numeroDeTarjeta, 
-            string pin)
+            ETipoOperacion tipoOperacion)
         {
-            return await _connection.QueryFirstOrDefaultAsync<bool>(
-                NUMERO_DE_TARJETA_AND_PIN_MATCH,
+            return await _connection.QueryFirstOrDefaultAsync<GetCuentaSaldoQryResult>(
+                GET_SALDO,
                 new
                 {
                     NumeroDeTarjeta = numeroDeTarjeta,
-                    Pin = pin
+                    TipoOperacionId = (byte)tipoOperacion
                 });
         }
     }

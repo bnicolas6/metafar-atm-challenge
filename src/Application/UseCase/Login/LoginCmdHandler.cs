@@ -12,7 +12,7 @@ using System.Net;
 
 namespace Metafar.ATM.Challenge.Application.UseCase.Login
 {
-    public class LoginCmdHandler : IRequestHandler<LoginCmd, ApiResponse<LoginCmdResponse>>
+    public class LoginCmdHandler : IRequestHandler<LoginCmd, ATMResponse<LoginCmdResponse>>
     {
         private readonly IMemoryCacheRepository _memoryCacheRepository;
         private readonly IRepository<Cuenta> _repository;
@@ -35,7 +35,7 @@ namespace Metafar.ATM.Challenge.Application.UseCase.Login
             _logger = logger;
         }
 
-        public async Task<ApiResponse<LoginCmdResponse>> Handle(
+        public async Task<ATMResponse<LoginCmdResponse>> Handle(
             LoginCmd request, 
             CancellationToken cancellationToken)
         {
@@ -69,14 +69,14 @@ namespace Metafar.ATM.Challenge.Application.UseCase.Login
             return await _repository.FindByAsync(x => x.NumeroDeTarjeta == numeroDeTarjeta);
         }
 
-        private ApiResponse<LoginCmdResponse> CuentaNotFound()
+        private ATMResponse<LoginCmdResponse> CuentaNotFound()
         {
-            return new ApiResponse<LoginCmdResponse>
+            return new ATMResponse<LoginCmdResponse>
             {
                 HttpStatusCode = HttpStatusCode.BadRequest,
-                Errors = new List<ApiError>
+                Errors = new List<ATMError>
                 {
-                    new ApiError
+                    new ATMError
                     {
                         PropertyName = nameof(LoginCmd.NumeroDeTarjeta),
                         Message = CuentaErrorMessage.CUENTA_NOT_FOUND
@@ -100,14 +100,14 @@ namespace Metafar.ATM.Challenge.Application.UseCase.Login
             _memoryCacheRepository.Delete(numeroDeTarjeta);
         }
 
-        private ApiResponse<LoginCmdResponse> GetFailAttemptResponse()
+        private ATMResponse<LoginCmdResponse> GetFailAttemptResponse()
         {
-            return new ApiResponse<LoginCmdResponse>
+            return new ATMResponse<LoginCmdResponse>
             {
                 HttpStatusCode = HttpStatusCode.Unauthorized,
-                Errors = new List<ApiError>
+                Errors = new List<ATMError>
                 {
-                    new ApiError
+                    new ATMError
                     {
                         PropertyName = nameof(LoginCmd.Pin),
                         Message = CuentaErrorMessage.TARJETA_FAIL_ATTEMPT
@@ -116,7 +116,7 @@ namespace Metafar.ATM.Challenge.Application.UseCase.Login
             };
         }
 
-        private async Task<ApiResponse<LoginCmdResponse>> GetFailedAttemptsResponse(
+        private async Task<ATMResponse<LoginCmdResponse>> GetFailedAttemptsResponse(
             Cuenta cuenta, 
             string numeroDeTarjeta)
         {
@@ -172,14 +172,14 @@ namespace Metafar.ATM.Challenge.Application.UseCase.Login
                 });
         }
 
-        private ApiResponse<LoginCmdResponse> GetTarjetaBlockedResponse(string message)
+        private ATMResponse<LoginCmdResponse> GetTarjetaBlockedResponse(string message)
         {
-            return new ApiResponse<LoginCmdResponse>
+            return new ATMResponse<LoginCmdResponse>
             {
                 HttpStatusCode = HttpStatusCode.Forbidden,
-                Errors = new List<ApiError>
+                Errors = new List<ATMError>
                 {
-                    new ApiError
+                    new ATMError
                     {
                         PropertyName = nameof(LoginCmd.Pin),
                         Message = message
@@ -188,7 +188,7 @@ namespace Metafar.ATM.Challenge.Application.UseCase.Login
             };
         }
 
-        private ApiResponse<LoginCmdResponse> GetTokenResponse(string numeroDeTarjeta)
+        private ATMResponse<LoginCmdResponse> GetTokenResponse(string numeroDeTarjeta)
         {
             var parameters = new Dictionary<string, string>
             {
@@ -197,7 +197,7 @@ namespace Metafar.ATM.Challenge.Application.UseCase.Login
 
             var token = _tokenGenerator.GenerateToken(parameters);
 
-            return new ApiResponse<LoginCmdResponse>
+            return new ATMResponse<LoginCmdResponse>
             {
                 HttpStatusCode = HttpStatusCode.OK,
                 Content = new LoginCmdResponse
@@ -207,14 +207,14 @@ namespace Metafar.ATM.Challenge.Application.UseCase.Login
             };
         }
 
-        private ApiResponse<LoginCmdResponse> GetExceptionResponse(string errorMessage)
+        private ATMResponse<LoginCmdResponse> GetExceptionResponse(string errorMessage)
         {
-            return new ApiResponse<LoginCmdResponse>
+            return new ATMResponse<LoginCmdResponse>
             {
                 HttpStatusCode = HttpStatusCode.InternalServerError,
-                Errors = new List<ApiError>
+                Errors = new List<ATMError>
                 {
-                    new ApiError
+                    new ATMError
                     {
                         Message = errorMessage
                     }

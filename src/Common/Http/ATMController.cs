@@ -3,9 +3,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Metafar.ATM.Challenge.Common.Http
 {
-    public class ApiController : Controller
+    public class ATMController : Controller
     {
-        public IActionResult ProcessResult<T>(ApiResponse<T> response)
+        public IActionResult ProcessResult<T>(ATMResponse<T> response)
             where T : class
         {
             if (!response.IsValid)
@@ -16,7 +16,7 @@ namespace Metafar.ATM.Challenge.Common.Http
             return ProcessResultOnSuccess(response);
         }
 
-        private IActionResult ProcessResultOnError<T>(ApiResponse<T> response)
+        private IActionResult ProcessResultOnError<T>(ATMResponse<T> response)
             where T : class
         {
             return new JsonResult(response.Errors)
@@ -25,7 +25,7 @@ namespace Metafar.ATM.Challenge.Common.Http
             };
         }
 
-        private IActionResult ProcessResultOnSuccess<T>(ApiResponse<T> response)
+        private IActionResult ProcessResultOnSuccess<T>(ATMResponse<T> response)
             where T : class
         {
             return new JsonResult(response.Content)

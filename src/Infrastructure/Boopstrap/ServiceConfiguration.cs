@@ -4,6 +4,7 @@ using Metafar.ATM.Challenge.Infrastructure.Boopstrap.Providers;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.AspNetCore.Mvc.Versioning;
 using System.Reflection;
 
 namespace Metafar.ATM.Challenge.Infrastructure.Boopstrap
@@ -16,7 +17,10 @@ namespace Metafar.ATM.Challenge.Infrastructure.Boopstrap
         {
             services.Configure<LoginSettings>(configuration.GetSection(key: nameof(LoginSettings)));
 
-
+            //services.AddApiVersioning(options =>
+            //{
+            //    options.ReportApiVersions = true;
+            //});
 
             var applicationAssembly = typeof(LoginCmd).Assembly;
 

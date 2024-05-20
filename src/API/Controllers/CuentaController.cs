@@ -1,8 +1,9 @@
 ﻿using MediatR;
-using Metafar.ATM.Challenge.API.ViewModels;
+using Metafar.ATM.Challenge.Application.UseCase.GetSaldo;
 using Metafar.ATM.Challenge.Application.UseCase.Login;
 using Metafar.ATM.Challenge.Common.Http;
 using Metafar.ATM.Challenge.Common.Http.Response;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
@@ -14,29 +15,29 @@ namespace Metafar.ATM.Challenge.API.Controllers
     //[ApiVersion("1")]
     //[Route("api/v{version:apiVersion}/[controller]")]
     [ApiController]
-    public class LoginController : ATMController
+    [Authorize]
+    public class CuentaController : ATMController
     {
         private readonly IMediator _mediator;
 
-        public LoginController(IMediator mediator)
+        public CuentaController(IMediator mediator)
         {
             _mediator = mediator;
         }
 
         /// <summary>
-        /// Obtener Token de Authenticacion
+        /// Consultar saldo de una cuenta
         /// </summary>
         /// <param name="login"></param>
         /// <returns></returns>
-        [HttpPost("/api/login")]
+        [HttpGet("saldo")]
         [ProducesResponseType(typeof(LoginCmdResponse), StatusCodes.Status200OK)]
-        [ProducesResponseType(typeof(List<ATMError>), StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(typeof(List<ATMError>), StatusCodes.Status401Unauthorized)]
-        [ProducesResponseType(typeof(List<ATMError>), StatusCodes.Status403Forbidden)]
         [ProducesResponseType(typeof(List<ATMError>), StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult> LoginAsync([FromBody] LoginViewModel login)
+        public async Task<IActionResult> GetSaldoAsync()
         {
-            var request = new LoginCmd(login.NumeroDeTarjeta, login.Pin);
+            var numeroDeTarjeta = User.GetNumeroDeTarjetaClaim();
+
+            var request = new GetSaldoQry(numeroDeTarjeta);
             var response = await _mediator.Send(request);
 
             return ProcessResult(response);
