@@ -5,6 +5,7 @@
         public const string TABLE_NAME = "Cuentas";
 
         public int CuentaId { get; set; }
+        public string NumeroDeCuenta { get; set; }
         public int UsuarioId { get; set; }
         public decimal Saldo { get; set; }
         public string NumeroDeTarjeta { get; set; }

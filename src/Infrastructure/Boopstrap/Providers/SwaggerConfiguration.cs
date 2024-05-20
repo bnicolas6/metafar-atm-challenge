@@ -1,10 +1,9 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Swashbuckle.AspNetCore.SwaggerGen;
+using System.Reflection;
 
 namespace Metafar.ATM.Challenge.Infrastructure.Boopstrap.Providers
 {
@@ -28,19 +27,19 @@ namespace Metafar.ATM.Challenge.Infrastructure.Boopstrap.Providers
 
                 // Agregar el esquema de seguridad JWT a cada operación
                 c.AddSecurityRequirement(new OpenApiSecurityRequirement
-        {
-            {
-                new OpenApiSecurityScheme
                 {
-                    Reference = new OpenApiReference
                     {
-                        Type = ReferenceType.SecurityScheme,
-                        Id = "Bearer"
+                        new OpenApiSecurityScheme
+                        {
+                            Reference = new OpenApiReference
+                            {
+                                Type = ReferenceType.SecurityScheme,
+                                Id = "Bearer"
+                            }
+                        },
+                        new string[] {}
                     }
-                },
-                new string[] {}
-            }
-        });
+                });
             });
 
             return services;

@@ -23,7 +23,7 @@ namespace Metafar.ATM.Challenge.Infrastructure.Middlewares
             }
             catch (ValidationException ex)
             {
-                var response = ex.Errors.Select(error => new ApiError
+                var response = ex.Errors.Select(error => new ATMError
                 {
                     PropertyName = error.PropertyName,
                     Message = error.ErrorMessage

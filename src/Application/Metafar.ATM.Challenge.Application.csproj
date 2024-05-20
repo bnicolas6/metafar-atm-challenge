@@ -21,7 +21,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="UseCase\ConsultarSaldo\" />
     <Folder Include="UseCase\ExtraerSaldo\" />
     <Folder Include="UseCase\ConsultarOperaciones\" />
   </ItemGroup>

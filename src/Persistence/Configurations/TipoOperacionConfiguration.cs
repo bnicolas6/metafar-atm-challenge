@@ -1,4 +1,5 @@
 ﻿using Metafar.ATM.Challenge.Domain.Entities;
+using Metafar.ATM.Challenge.Domain.Enums;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -17,6 +18,18 @@ namespace Metafar.ATM.Challenge.Persistence.Configurations
                     .IsRequired()
                     .HasMaxLength(20)
                     .IsUnicode(false);
+
+            builder.HasData(
+                new TipoOperacion
+                {
+                    TipoOperacionId = (byte)ETipoOperacion.Extraccion,
+                    Descripcion = "Extraccion"
+                },
+                new TipoOperacion
+                {
+                    TipoOperacionId = (byte)ETipoOperacion.Deposito,
+                    Descripcion = "Deposito"
+                });
         }
     }
 }
