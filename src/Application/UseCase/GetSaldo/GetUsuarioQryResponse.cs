@@ -10,7 +10,7 @@ namespace Metafar.ATM.Challenge.Application.UseCase.GetSaldo
         public static explicit operator GetUsuarioQryResponse(GetCuentaSaldoQryResult @object)
         {
             if (@object == null)
-                return null;
+                throw new ArgumentNullException(nameof(@object));
 
             return new GetUsuarioQryResponse
             {
