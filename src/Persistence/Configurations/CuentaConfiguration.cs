@@ -14,13 +14,18 @@ namespace Metafar.ATM.Challenge.Persistence.Configurations
 
             builder.ToTable(Cuenta.TABLE_NAME);
 
+            builder.Property(e => e.NumeroDeCuenta)
+                .IsRequired()
+                .HasColumnType("char(10)")
+                .HasMaxLength(10);
+
             builder.Property(e => e.Saldo)
                 .IsRequired()
                 .HasColumnType("decimal(10,2)");
 
             builder.Property(e => e.NumeroDeTarjeta)
                 .IsRequired()
-                .HasColumnType("varchar(16)")
+                .HasColumnType("char(16)")
                 .HasMaxLength(16);
 
             builder.Property(e => e.Pin)
@@ -49,6 +54,9 @@ namespace Metafar.ATM.Challenge.Persistence.Configurations
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_Cuentas_ActualizadoPor_Usuarios");
 
+            builder.HasIndex(x => x.NumeroDeCuenta)
+                .IsUnique();
+
             builder.HasIndex(c => c.NumeroDeTarjeta)
                 .IsUnique();
 
@@ -56,8 +64,9 @@ namespace Metafar.ATM.Challenge.Persistence.Configurations
                 new Cuenta
                 {
                     CuentaId = 1,
+                    NumeroDeCuenta = "1111111111",
                     UsuarioId = 1,
-                    Saldo = 1400500.25M,
+                    Saldo = 3400000,
                     NumeroDeTarjeta = "1122334455667788",
                     Pin = "1234",
                     EstadoTarjetaId = (byte)EEstadoTarjeta.Activo,
@@ -67,6 +76,7 @@ namespace Metafar.ATM.Challenge.Persistence.Configurations
                 new Cuenta
                 {
                     CuentaId = 2,
+                    NumeroDeCuenta = "2222222222",
                     UsuarioId = 2,
                     Saldo = 925040.50M,
                     NumeroDeTarjeta = "8877665544332211",
@@ -78,6 +88,7 @@ namespace Metafar.ATM.Challenge.Persistence.Configurations
                 new Cuenta
                 {
                     CuentaId = 3,
+                    NumeroDeCuenta = "3333333333",
                     UsuarioId = 3,
                     Saldo = 125475.25M,
                     NumeroDeTarjeta = "9955660044773311",
