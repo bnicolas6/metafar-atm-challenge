@@ -34,7 +34,7 @@ namespace Metafar.ATM.Challenge.Persistence.Queries
                         MAX(Fecha) AS FechaUltimaExtraccion			
                     FROM 
                         Operaciones O
-                    WHERE 
+                    WHERE  
                         TipoOperacionId = @TipoOperacionId
                     GROUP BY 
                         O.CuentaId

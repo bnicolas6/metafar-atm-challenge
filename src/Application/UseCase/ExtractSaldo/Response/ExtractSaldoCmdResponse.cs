@@ -1,6 +1,6 @@
 ﻿using Metafar.ATM.Challenge.Domain.Entities;
 
-namespace Metafar.ATM.Challenge.Application.UseCase.ExtractSaldo
+namespace Metafar.ATM.Challenge.Application.UseCase.ExtractSaldo.Response
 {
     public class ExtractSaldoCmdResponse
     {

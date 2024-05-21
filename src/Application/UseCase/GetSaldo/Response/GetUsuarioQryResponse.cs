@@ -1,6 +1,6 @@
 ﻿using Metafar.ATM.Challenge.Domain.QryResults;
 
-namespace Metafar.ATM.Challenge.Application.UseCase.GetSaldo
+namespace Metafar.ATM.Challenge.Application.UseCase.GetSaldo.Response
 {
     public class GetUsuarioQryResponse
     {

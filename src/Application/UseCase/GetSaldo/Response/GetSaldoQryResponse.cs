@@ -1,6 +1,6 @@
 ﻿using Metafar.ATM.Challenge.Domain.QryResults;
 
-namespace Metafar.ATM.Challenge.Application.UseCase.GetSaldo
+namespace Metafar.ATM.Challenge.Application.UseCase.GetSaldo.Response
 {
     public class GetSaldoQryResponse
     {
@@ -20,8 +20,8 @@ namespace Metafar.ATM.Challenge.Application.UseCase.GetSaldo
                 Id = @object.CuentaId,
                 NumeroDeCuenta = @object.NumeroDeCuenta,
                 Saldo = @object.Saldo,
-                FechaUltimaExtraccion = @object.FechaUltimaExtraccion != default 
-                ? @object.FechaUltimaExtraccion : 
+                FechaUltimaExtraccion = @object.FechaUltimaExtraccion != default
+                ? @object.FechaUltimaExtraccion :
                 null,
                 Usuario = (GetUsuarioQryResponse)@object
             };

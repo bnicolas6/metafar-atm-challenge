@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Metafar.ATM.Challenge.Application.UseCase.Login.Response;
 using Metafar.ATM.Challenge.Common.ErrorMessages;
 using Metafar.ATM.Challenge.Common.Http.Response;
 using Metafar.ATM.Challenge.Domain.Entities;

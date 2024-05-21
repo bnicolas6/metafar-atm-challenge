@@ -3,7 +3,7 @@ using Metafar.ATM.Challenge.Domain.Enums;
 using System.Net.NetworkInformation;
 using System.Transactions;
 
-namespace Metafar.ATM.Challenge.Application.UseCase.ExtractSaldo
+namespace Metafar.ATM.Challenge.Application.UseCase.ExtractSaldo.Response
 {
     public class TipoOperacionCmdResponse
     {

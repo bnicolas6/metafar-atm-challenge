@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Metafar.ATM.Challenge.Application.UseCase.GetSaldo.Response;
 using Metafar.ATM.Challenge.Common.Http.Response;
 using Metafar.ATM.Challenge.Domain.Enums;
 using Metafar.ATM.Challenge.Domain.Interfaces.Queries;

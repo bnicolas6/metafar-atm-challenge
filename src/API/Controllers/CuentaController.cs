@@ -2,7 +2,7 @@
 using Metafar.ATM.Challenge.API.ViewModels;
 using Metafar.ATM.Challenge.Application.UseCase.ExtractSaldo;
 using Metafar.ATM.Challenge.Application.UseCase.GetSaldo;
-using Metafar.ATM.Challenge.Application.UseCase.Login;
+using Metafar.ATM.Challenge.Application.UseCase.GetSaldo.Response;
 using Metafar.ATM.Challenge.Common.Http;
 using Metafar.ATM.Challenge.Common.Http.Response;
 using Microsoft.AspNetCore.Authorization;

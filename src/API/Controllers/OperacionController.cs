@@ -1,9 +1,9 @@
 ﻿using MediatR;
-using Metafar.ATM.Challenge.API.ViewModels;
-using Metafar.ATM.Challenge.Application.UseCase.Login;
-using Metafar.ATM.Challenge.Application.UseCase.Login.Response;
+using Metafar.ATM.Challenge.Application.UseCase.GetOperaciones;
+using Metafar.ATM.Challenge.Application.UseCase.GetSaldo.Response;
 using Metafar.ATM.Challenge.Common.Http;
 using Metafar.ATM.Challenge.Common.Http.Response;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
@@ -15,29 +15,30 @@ namespace Metafar.ATM.Challenge.API.Controllers
     //[ApiVersion("1")]
     //[Route("api/v{version:apiVersion}/[controller]")]
     [ApiController]
-    public class LoginController : ATMController
+    [Authorize]
+    public class OperacionController : ATMController
     {
         private readonly IMediator _mediator;
 
-        public LoginController(IMediator mediator)
+        public OperacionController(IMediator mediator)
         {
             _mediator = mediator;
         }
 
         /// <summary>
-        /// Obtener Token de Authenticacion
+        /// Consultar operaciones
         /// </summary>
         /// <param name="login"></param>
         /// <returns></returns>
-        [HttpPost("/api/login")]
-        [ProducesResponseType(typeof(LoginCmdResponse), StatusCodes.Status200OK)]
-        [ProducesResponseType(typeof(List<ATMError>), StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(typeof(List<ATMError>), StatusCodes.Status401Unauthorized)]
-        [ProducesResponseType(typeof(List<ATMError>), StatusCodes.Status403Forbidden)]
+        [HttpGet("/operaciones")]
+        [ProducesResponseType(typeof(GetSaldoQryResponse), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(GetSaldoQryResponse), StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(List<ATMError>), StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult> LoginAsync([FromBody] LoginViewModel login)
+        public async Task<IActionResult> GetOperacionesAsync(int? pageNumber)
         {
-            var request = new LoginCmd(login.NumeroDeTarjeta, login.Pin);
+            var numeroDeTarjeta = User.GetNumeroDeTarjetaClaim();
+
+            var request = new GetOperacionQry(numeroDeTarjeta, pageNumber);
             var response = await _mediator.Send(request);
 
             return ProcessResult(response);

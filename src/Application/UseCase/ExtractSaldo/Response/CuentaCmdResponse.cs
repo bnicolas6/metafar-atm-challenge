@@ -1,6 +1,6 @@
 ﻿using Metafar.ATM.Challenge.Domain.Entities;
 
-namespace Metafar.ATM.Challenge.Application.UseCase.ExtractSaldo
+namespace Metafar.ATM.Challenge.Application.UseCase.ExtractSaldo.Response
 {
     public class CuentaCmdResponse
     {
@@ -10,7 +10,7 @@ namespace Metafar.ATM.Challenge.Application.UseCase.ExtractSaldo
 
         public static explicit operator CuentaCmdResponse(Cuenta @object)
         {
-            if (@object == null) 
+            if (@object == null)
                 throw new ArgumentNullException(nameof(@object));
 
             return new CuentaCmdResponse
