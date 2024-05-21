@@ -16,6 +16,8 @@ namespace Metafar.ATM.Challenge.Infrastructure.Boopstrap
             IConfiguration configuration) 
         {
             services.Configure<LoginSettings>(configuration.GetSection(key: nameof(LoginSettings)));
+            services.Configure<PaginationSettings>(configuration.GetSection(key: nameof(PaginationSettings)));
+
 
             //services.AddApiVersioning(options =>
             //{

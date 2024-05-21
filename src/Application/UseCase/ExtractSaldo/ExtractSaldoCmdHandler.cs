@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Metafar.ATM.Challenge.Application.UseCase.ExtractSaldo.Response;
 using Metafar.ATM.Challenge.Common.ErrorMessages;
 using Metafar.ATM.Challenge.Common.Http.Response;
 using Metafar.ATM.Challenge.Common.Utils;

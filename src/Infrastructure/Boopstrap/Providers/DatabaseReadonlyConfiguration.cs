@@ -18,6 +18,7 @@ namespace Metafar.ATM.Challenge.Infrastructure.Boopstrap.Providers
             services.AddSingleton<IDbConnection>(new SqlConnection(connectionString));
 
             services.AddScoped<ICuentasQuery, CuentasQuery>();
+            services.AddScoped<IOperacionesQuery, OperacionesQuery>();
 
             return services;
         }
