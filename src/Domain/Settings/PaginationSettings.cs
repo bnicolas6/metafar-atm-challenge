@@ -3,6 +3,6 @@
     public class PaginationSettings
     {
         public int PageSize { get; set; }
-        public int DefaultPage { get; set; }
+        public int DefaultPageNumber { get; set; }
     }
 }

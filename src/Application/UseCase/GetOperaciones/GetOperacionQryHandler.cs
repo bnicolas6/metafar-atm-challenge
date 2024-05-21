@@ -65,7 +65,7 @@ namespace Metafar.ATM.Challenge.Application.UseCase.GetOperaciones
         {
             return pageNumber.HasValue ? 
                 pageNumber.Value : 
-                _paginationSettings.DefaultPage;
+                _paginationSettings.DefaultPageNumber;
         }
 
         private List<GetOperacionQryResponse> GetMappedOperaciones(IEnumerable<GetOperacionQryResult> operacionesResult)
