@@ -14,15 +14,14 @@ using System.Threading.Tasks;
 namespace Metafar.ATM.Challenge.API.Controllers
 {
     [ApiConventionType(typeof(DefaultApiConventions))]
-    //[ApiVersion("1")]
-    //[Route("api/v{version:apiVersion}/[controller]")]
+    [Route("api/[controller]")]
     [ApiController]
     [Authorize]
-    public class CuentaController : ATMController
+    public class CuentasController : ATMController
     {
         private readonly IMediator _mediator;
 
-        public CuentaController(IMediator mediator)
+        public CuentasController(IMediator mediator)
         {
             _mediator = mediator;
         }
