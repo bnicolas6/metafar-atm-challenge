@@ -11,6 +11,27 @@
 			"item": [
 				{
 					"name": "1-ERROR_NumeroDeTarjeta_No_Ingresado",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var expectedStatusCode = 400\r",
+									"\r",
+									"pm.test(\"Validacion de StatuCode\", function () {\r",
+									"    if (pm.response.code === expectedStatusCode) {\r",
+									"        console.log(\"Respuesta esperada: 400\");\r",
+									"    }  else {\r",
+									"        console.log(\"Respuesta no esperada: \" + pm.response.code);\r",
+									"        pm.expect(pm.response.code).to.eql(expectedStatusCode);\r",
+									"    }\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -38,6 +59,27 @@
 				},
 				{
 					"name": "2-ERROR_NumeroDeTarjeta_Tamaño_incorrecto",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var expectedStatusCode = 400\r",
+									"\r",
+									"pm.test(\"Validacion de StatuCode\", function () {\r",
+									"    if (pm.response.code === expectedStatusCode) {\r",
+									"        console.log(\"Respuesta esperada: 400\");\r",
+									"    }  else {\r",
+									"        console.log(\"Respuesta no esperada: \" + pm.response.code);\r",
+									"        pm.expect(pm.response.code).to.eql(expectedStatusCode);\r",
+									"    }\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -65,6 +107,27 @@
 				},
 				{
 					"name": "3-ERROR_NumeroDeTarjeta_No_numerico",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var expectedStatusCode = 400\r",
+									"\r",
+									"pm.test(\"Validacion de StatuCode\", function () {\r",
+									"    if (pm.response.code === expectedStatusCode) {\r",
+									"        console.log(\"Respuesta esperada: 400\");\r",
+									"    }  else {\r",
+									"        console.log(\"Respuesta no esperada: \" + pm.response.code);\r",
+									"        pm.expect(pm.response.code).to.eql(expectedStatusCode);\r",
+									"    }\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -92,6 +155,27 @@
 				},
 				{
 					"name": "4-ERROR_PIN_No_Ingresado",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var expectedStatusCode = 400\r",
+									"\r",
+									"pm.test(\"Validacion de StatuCode\", function () {\r",
+									"    if (pm.response.code === expectedStatusCode) {\r",
+									"        console.log(\"Respuesta esperada: 400\");\r",
+									"    }  else {\r",
+									"        console.log(\"Respuesta no esperada: \" + pm.response.code);\r",
+									"        pm.expect(pm.response.code).to.eql(expectedStatusCode);\r",
+									"    }\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -119,6 +203,27 @@
 				},
 				{
 					"name": "5-ERROR_PIN_Tamaño_incorrecto",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var expectedStatusCode = 400\r",
+									"\r",
+									"pm.test(\"Validacion de StatuCode\", function () {\r",
+									"    if (pm.response.code === expectedStatusCode) {\r",
+									"        console.log(\"Respuesta esperada: 400\");\r",
+									"    }  else {\r",
+									"        console.log(\"Respuesta no esperada: \" + pm.response.code);\r",
+									"        pm.expect(pm.response.code).to.eql(expectedStatusCode);\r",
+									"    }\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -146,6 +251,27 @@
 				},
 				{
 					"name": "6-ERROR_PIN_No_numerico",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var expectedStatusCode = 400\r",
+									"\r",
+									"pm.test(\"Validacion de StatuCode\", function () {\r",
+									"    if (pm.response.code === expectedStatusCode) {\r",
+									"        console.log(\"Respuesta esperada: 400\");\r",
+									"    }  else {\r",
+									"        console.log(\"Respuesta no esperada: \" + pm.response.code);\r",
+									"        pm.expect(pm.response.code).to.eql(expectedStatusCode);\r",
+									"    }\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -173,6 +299,27 @@
 				},
 				{
 					"name": "7-ERROR_Cuenta_no_encontrada",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var expectedStatusCode = 400\r",
+									"\r",
+									"pm.test(\"Validacion de StatuCode\", function () {\r",
+									"    if (pm.response.code === expectedStatusCode) {\r",
+									"        console.log(\"Respuesta esperada: 400\");\r",
+									"    }  else {\r",
+									"        console.log(\"Respuesta no esperada: \" + pm.response.code);\r",
+									"        pm.expect(pm.response.code).to.eql(expectedStatusCode);\r",
+									"    }\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -200,6 +347,27 @@
 				},
 				{
 					"name": "8-ERROR_Tarjeta_bloqueada",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var expectedStatusCode = 403\r",
+									"\r",
+									"pm.test(\"Validacion de StatuCode\", function () {\r",
+									"    if (pm.response.code === expectedStatusCode) {\r",
+									"        console.log(\"Respuesta esperada: 403\");\r",
+									"    }  else {\r",
+									"        console.log(\"Respuesta no esperada: \" + pm.response.code);\r",
+									"        pm.expect(pm.response.code).to.eql(expectedStatusCode);\r",
+									"    }\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -227,6 +395,28 @@
 				},
 				{
 					"name": "9-ERROR_NumeroDeTarjeta_PIN_no_coincidencia",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var first_expectedStatusCode = 401\r",
+									"var second_expectedStatusCode = 403\r",
+									"\r",
+									"pm.test(\"Validacion de StatuCode\", function () {\r",
+									"    if (pm.response.code === first_expectedStatusCode || pm.response.code === second_expectedStatusCode) {\r",
+									"        console.log(\"Respuesta esperada\");\r",
+									"    }  else {\r",
+									"        console.log(\"Respuesta no esperada: \" + pm.response.code);\r",
+									"        pm.expect(pm.response.code).to.eql(expectedStatusCode);\r",
+									"    }\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -259,10 +449,22 @@
 							"listen": "test",
 							"script": {
 								"exec": [
+									"var expectedStatusCode = 200\r",
+									"\r",
+									"pm.test(\"Validacion de StatuCode\", function () {\r",
+									"    if (pm.response.code === expectedStatusCode) {\r",
+									"        console.log(\"Respuesta esperada: 200\");\r",
+									"    }  else {\r",
+									"        console.log(\"Respuesta no esperada: \" + pm.response.code);\r",
+									"        pm.expect(pm.response.code).to.eql(expectedStatusCode);\r",
+									"    }\r",
+									"});\r",
+									"\r",
 									"var jsonData = pm.response.json();\r",
 									"pm.environment.set(\"token\", jsonData.token);"
 								],
-								"type": "text/javascript"
+								"type": "text/javascript",
+								"packages": {}
 							}
 						}
 					],
@@ -297,7 +499,78 @@
 			"name": "2-API_Get_Saldo",
 			"item": [
 				{
-					"name": "1-Consultar_Saldo",
+					"name": "1-ERROR_Token_No_Valido",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var expectedStatusCode = 401\r",
+									"\r",
+									"pm.test(\"Validacion de StatuCode\", function () {\r",
+									"    if (pm.response.code === expectedStatusCode) {\r",
+									"        console.log(\"Respuesta esperada: 401\");\r",
+									"    }  else {\r",
+									"        console.log(\"Respuesta no esperada: \" + pm.response.code);\r",
+									"        pm.expect(pm.response.code).to.eql(expectedStatusCode);\r",
+									"    }\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{EnvironmentUrl}}/api/Cuentas/saldo",
+							"host": [
+								"{{EnvironmentUrl}}"
+							],
+							"path": [
+								"api",
+								"Cuentas",
+								"saldo"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "1-OK_Consultar_Saldo",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var expectedStatusCode = 200\r",
+									"\r",
+									"pm.test(\"Validacion de StatuCode\", function () {\r",
+									"    if (pm.response.code === expectedStatusCode) {\r",
+									"        console.log(\"Respuesta esperada: 200\");\r",
+									"    }  else {\r",
+									"        console.log(\"Respuesta no esperada: \" + pm.response.code);\r",
+									"        pm.expect(pm.response.code).to.eql(expectedStatusCode);\r",
+									"    }\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"request": {
 						"auth": {
 							"type": "bearer",
@@ -332,6 +605,27 @@
 			"item": [
 				{
 					"name": "1-ERROR_Token_No_valido",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var expectedStatusCode = 401\r",
+									"\r",
+									"pm.test(\"Validacion de StatuCode\", function () {\r",
+									"    if (pm.response.code === expectedStatusCode) {\r",
+									"        console.log(\"Respuesta esperada: 401\");\r",
+									"    }  else {\r",
+									"        console.log(\"Respuesta no esperada: \" + pm.response.code);\r",
+									"        pm.expect(pm.response.code).to.eql(expectedStatusCode);\r",
+									"    }\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"request": {
 						"auth": {
 							"type": "bearer",
@@ -370,6 +664,27 @@
 				},
 				{
 					"name": "2-ERROR_Monto_No_Ingresado",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var expectedStatusCode = 400\r",
+									"\r",
+									"pm.test(\"Validacion de StatuCode\", function () {\r",
+									"    if (pm.response.code === expectedStatusCode) {\r",
+									"        console.log(\"Respuesta esperada: 400\");\r",
+									"    }  else {\r",
+									"        console.log(\"Respuesta no esperada: \" + pm.response.code);\r",
+									"        pm.expect(pm.response.code).to.eql(expectedStatusCode);\r",
+									"    }\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"request": {
 						"auth": {
 							"type": "bearer",
@@ -408,6 +723,27 @@
 				},
 				{
 					"name": "3-ERROR_Monto_No_Valido",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var expectedStatusCode = 400\r",
+									"\r",
+									"pm.test(\"Validacion de StatuCode\", function () {\r",
+									"    if (pm.response.code === expectedStatusCode) {\r",
+									"        console.log(\"Respuesta esperada: 400\");\r",
+									"    }  else {\r",
+									"        console.log(\"Respuesta no esperada: \" + pm.response.code);\r",
+									"        pm.expect(pm.response.code).to.eql(expectedStatusCode);\r",
+									"    }\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"request": {
 						"auth": {
 							"type": "bearer",
@@ -446,6 +782,27 @@
 				},
 				{
 					"name": "3-ERROR_Monto_Parte_Entera_No_Valida",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var expectedStatusCode = 400\r",
+									"\r",
+									"pm.test(\"Validacion de StatuCode\", function () {\r",
+									"    if (pm.response.code === expectedStatusCode) {\r",
+									"        console.log(\"Respuesta esperada: 400\");\r",
+									"    }  else {\r",
+									"        console.log(\"Respuesta no esperada: \" + pm.response.code);\r",
+									"        pm.expect(pm.response.code).to.eql(expectedStatusCode);\r",
+									"    }\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"request": {
 						"auth": {
 							"type": "bearer",
@@ -484,6 +841,28 @@
 				},
 				{
 					"name": "4-Extract_Saldo",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var first_expectedStatusCode = 200\r",
+									"var second_expectedStatusCode = 400\r",
+									"\r",
+									"pm.test(\"Validacion de StatuCode\", function () {\r",
+									"    if (pm.response.code === first_expectedStatusCode || pm.response.code === second_expectedStatusCode) {\r",
+									"        console.log(\"Respuesta esperada\");\r",
+									"    }  else {\r",
+									"        console.log(\"Respuesta no esperada: \" + pm.response.code);\r",
+									"        pm.expect(pm.response.code).to.eql(expectedStatusCode);\r",
+									"    }\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"request": {
 						"auth": {
 							"type": "bearer",
@@ -499,7 +878,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"monto\": 75000\r\n}",
+							"raw": "{\r\n    \"monto\": 5000\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -526,7 +905,83 @@
 			"name": "4-API_Get_Operaciones",
 			"item": [
 				{
-					"name": "1-ERROR_PageNumber_No_Valido",
+					"name": "1-ERROR_Token_No_Valido",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var expectedStatusCode = 401\r",
+									"\r",
+									"pm.test(\"Validacion de StatuCode\", function () {\r",
+									"    if (pm.response.code === expectedStatusCode) {\r",
+									"        console.log(\"Respuesta esperada: 401\");\r",
+									"    }  else {\r",
+									"        console.log(\"Respuesta no esperada: \" + pm.response.code);\r",
+									"        pm.expect(pm.response.code).to.eql(expectedStatusCode);\r",
+									"    }\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{EnvironmentUrl}}/api/Operaciones?pageNumber=1",
+							"host": [
+								"{{EnvironmentUrl}}"
+							],
+							"path": [
+								"api",
+								"Operaciones"
+							],
+							"query": [
+								{
+									"key": "pageNumber",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "2-ERROR_PageNumber_No_Valido",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var expectedStatusCode = 400\r",
+									"\r",
+									"pm.test(\"Validacion de StatuCode\", function () {\r",
+									"    if (pm.response.code === expectedStatusCode) {\r",
+									"        console.log(\"Respuesta esperada: 400\");\r",
+									"    }  else {\r",
+									"        console.log(\"Respuesta no esperada: \" + pm.response.code);\r",
+									"        pm.expect(pm.response.code).to.eql(expectedStatusCode);\r",
+									"    }\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"request": {
 						"auth": {
 							"type": "bearer",
@@ -560,7 +1015,28 @@
 					"response": []
 				},
 				{
-					"name": "2-ERROR_PageNumber_Overflow",
+					"name": "3-ERROR_PageNumber_Overflow",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var expectedStatusCode = 500\r",
+									"\r",
+									"pm.test(\"Validacion de StatuCode\", function () {\r",
+									"    if (pm.response.code === expectedStatusCode) {\r",
+									"        console.log(\"Respuesta esperada: 500\");\r",
+									"    }  else {\r",
+									"        console.log(\"Respuesta no esperada: \" + pm.response.code);\r",
+									"        pm.expect(pm.response.code).to.eql(expectedStatusCode);\r",
+									"    }\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"request": {
 						"auth": {
 							"type": "bearer",
@@ -594,7 +1070,28 @@
 					"response": []
 				},
 				{
-					"name": "3-OK_PageNumber_No_Ingresado",
+					"name": "4-OK_PageNumber_No_Ingresado",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var expectedStatusCode = 200\r",
+									"\r",
+									"pm.test(\"Validacion de StatuCode\", function () {\r",
+									"    if (pm.response.code === expectedStatusCode) {\r",
+									"        console.log(\"Respuesta esperada: 200\");\r",
+									"    }  else {\r",
+									"        console.log(\"Respuesta no esperada: \" + pm.response.code);\r",
+									"        pm.expect(pm.response.code).to.eql(expectedStatusCode);\r",
+									"    }\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"request": {
 						"auth": {
 							"type": "bearer",
@@ -622,7 +1119,28 @@
 					"response": []
 				},
 				{
-					"name": "4-OK_PageNumber_Ingresado",
+					"name": "5-OK_PageNumber_Ingresado",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var expectedStatusCode = 200\r",
+									"\r",
+									"pm.test(\"Validacion de StatuCode\", function () {\r",
+									"    if (pm.response.code === expectedStatusCode) {\r",
+									"        console.log(\"Respuesta esperada: 200\");\r",
+									"    }  else {\r",
+									"        console.log(\"Respuesta no esperada: \" + pm.response.code);\r",
+									"        pm.expect(pm.response.code).to.eql(expectedStatusCode);\r",
+									"    }\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"request": {
 						"auth": {
 							"type": "bearer",

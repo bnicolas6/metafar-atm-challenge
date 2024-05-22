@@ -16,7 +16,7 @@ namespace Metafar.ATM.Challenge.Infrastructure.Boopstrap.Providers
             services.AddDbContext<ATMDbContext>(options =>
                 options.UseSqlServer(configuration.GetConnectionString("WritingConnection")));
 
-            services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+            services.AddScoped(typeof(IATMRepository<>), typeof(ATMRepository<>));
 
             return services;
         }

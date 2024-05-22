@@ -2,7 +2,7 @@
 
 namespace Metafar.ATM.Challenge.Domain.Interfaces.Commands
 {
-    public interface IRepository<TEntity> 
+    public interface IATMRepository<TEntity> 
         where TEntity : class
     {
         Task<TEntity> GetByIdAsync(int id);

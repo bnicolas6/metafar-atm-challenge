@@ -16,7 +16,7 @@ namespace Application.Test.UseCase.Login
     public class LoginCmdHandlerTest
     {
         private readonly Mock<IMemoryCacheRepository> _memoryCacheRepository;
-        private readonly Mock<IRepository<Cuenta>> _repository;
+        private readonly Mock<IATMRepository<Cuenta>> _repository;
         private readonly Mock<ITokenGenerator> _tokenGenerator;
         private readonly Mock<IOptions<LoginSettings>> _options;
         private readonly Mock<ILogger<LoginCmdHandler>> _logger;
@@ -34,7 +34,7 @@ namespace Application.Test.UseCase.Login
         public LoginCmdHandlerTest()
         {
             _memoryCacheRepository = new Mock<IMemoryCacheRepository>();
-            _repository = new Mock<IRepository<Cuenta>>();
+            _repository = new Mock<IATMRepository<Cuenta>>();
             _tokenGenerator = new Mock<ITokenGenerator>();      
             _options = new Mock<IOptions<LoginSettings>>();
             _logger = new Mock<ILogger<LoginCmdHandler>>();

@@ -11,7 +11,7 @@ namespace Application.Test.UseCase.ExtractSaldo
 {
     public class ExtractSaldoCmdHandlerTest
     {
-        private readonly Mock<IRepository<Cuenta>> _repository;
+        private readonly Mock<IATMRepository<Cuenta>> _repository;
         private readonly Mock<ILogger<ExtractSaldoCmdHandler>> _logger;
 
         private readonly ExtractSaldoCmdHandler _cmdHandler;
@@ -22,7 +22,7 @@ namespace Application.Test.UseCase.ExtractSaldo
 
         public ExtractSaldoCmdHandlerTest()
         {
-            _repository = new Mock<IRepository<Cuenta>>();
+            _repository = new Mock<IATMRepository<Cuenta>>();
             _logger = new Mock<ILogger<ExtractSaldoCmdHandler>>();
 
             _cmdHandler = new ExtractSaldoCmdHandler(

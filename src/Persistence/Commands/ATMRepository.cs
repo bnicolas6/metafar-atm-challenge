@@ -4,12 +4,12 @@ using System.Linq.Expressions;
 
 namespace Metafar.ATM.Challenge.Persistence.Commands
 {
-    public class Repository<TEntity> : IRepository<TEntity> 
+    public class ATMRepository<TEntity> : IATMRepository<TEntity> 
         where TEntity : class
     {
         private readonly ATMDbContext _context;
 
-        public Repository(ATMDbContext context)
+        public ATMRepository(ATMDbContext context)
         {
             _context = context;
         }
