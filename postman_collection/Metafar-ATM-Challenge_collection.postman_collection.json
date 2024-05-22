@@ -1,13 +1,13 @@
 {
 	"info": {
-		"_postman_id": "4c5894d9-d3dc-49fb-abcf-87ef8d8324c4",
+		"_postman_id": "6af72792-127f-40f7-b6a7-df42d49407ea",
 		"name": "Metafar-ATM-Challenge_collection",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "26207395"
+		"_exporter_id": "6161773"
 	},
 	"item": [
 		{
-			"name": "API_Login",
+			"name": "1-API_Login",
 			"item": [
 				{
 					"name": "1-ERROR_NumeroDeTarjeta_No_Ingresado",
@@ -253,13 +253,25 @@
 					"response": []
 				},
 				{
-					"name": "10-ERROR_NumeroDeTarjeta_PIN_coincidencia",
+					"name": "10-OK_NumeroDeTarjeta_PIN_coincidencia",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = pm.response.json();\r",
+									"pm.environment.set(\"token\", jsonData.token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"numeroDeTarjeta\": \"9955660044773311\",\r\n  \"pin\": \"1111\"\r\n}",
+							"raw": "{\r\n  \"numeroDeTarjeta\": \"1122334455667788\",\r\n  \"pin\": \"1234\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -282,7 +294,7 @@
 			]
 		},
 		{
-			"name": "API_Get_Saldo",
+			"name": "2-API_Get_Saldo",
 			"item": [
 				{
 					"name": "1-Consultar_Saldo",
@@ -292,7 +304,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJOdW1lcm9EZVRhcmpldGEiOiIxMTIyMzM0NDU1NjY3Nzg4IiwibmJmIjoxNzE2MTczMjE5LCJleHAiOjE3MTYxNzY4MTksImlhdCI6MTcxNjE3MzIxOSwiaXNzIjoiQVRNIiwiYXVkIjoiVXNlclRlcm1pbmFsIn0.ltdK80t0dwVO4oM6jEF7EEfNJPmya7LdyfgDtyTc1Q4",
+									"value": "{{token}}",
 									"type": "string"
 								}
 							]
@@ -300,12 +312,344 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{EnvironmentUrl}}/saldo",
+							"raw": "{{EnvironmentUrl}}/api/Cuentas/saldo",
 							"host": [
 								"{{EnvironmentUrl}}"
 							],
 							"path": [
+								"api",
+								"Cuentas",
 								"saldo"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "3-API_Extract_Saldo",
+			"item": [
+				{
+					"name": "1-ERROR_Token_No_valido",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"monto\": 25\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{EnvironmentUrl}}/api/Cuentas/extraer-saldo",
+							"host": [
+								"{{EnvironmentUrl}}"
+							],
+							"path": [
+								"api",
+								"Cuentas",
+								"extraer-saldo"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "2-ERROR_Monto_No_Ingresado",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"monto\": null\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{EnvironmentUrl}}/api/Cuentas/extraer-saldo",
+							"host": [
+								"{{EnvironmentUrl}}"
+							],
+							"path": [
+								"api",
+								"Cuentas",
+								"extraer-saldo"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "3-ERROR_Monto_No_Valido",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"monto\": -1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{EnvironmentUrl}}/api/Cuentas/extraer-saldo",
+							"host": [
+								"{{EnvironmentUrl}}"
+							],
+							"path": [
+								"api",
+								"Cuentas",
+								"extraer-saldo"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "3-ERROR_Monto_Parte_Entera_No_Valida",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"monto\": 123456789123456789\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{EnvironmentUrl}}/api/Cuentas/extraer-saldo",
+							"host": [
+								"{{EnvironmentUrl}}"
+							],
+							"path": [
+								"api",
+								"Cuentas",
+								"extraer-saldo"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "4-Extract_Saldo",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"monto\": 75000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{EnvironmentUrl}}/api/Cuentas/extraer-saldo",
+							"host": [
+								"{{EnvironmentUrl}}"
+							],
+							"path": [
+								"api",
+								"Cuentas",
+								"extraer-saldo"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "4-API_Get_Operaciones",
+			"item": [
+				{
+					"name": "1-ERROR_PageNumber_No_Valido",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{EnvironmentUrl}}/api/Operaciones?pageNumber=-1",
+							"host": [
+								"{{EnvironmentUrl}}"
+							],
+							"path": [
+								"api",
+								"Operaciones"
+							],
+							"query": [
+								{
+									"key": "pageNumber",
+									"value": "-1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "2-ERROR_PageNumber_Overflow",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{EnvironmentUrl}}/api/Operaciones?pageNumber=2147483647",
+							"host": [
+								"{{EnvironmentUrl}}"
+							],
+							"path": [
+								"api",
+								"Operaciones"
+							],
+							"query": [
+								{
+									"key": "pageNumber",
+									"value": "2147483647"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "3-OK_PageNumber_No_Ingresado",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{EnvironmentUrl}}/api/Operaciones",
+							"host": [
+								"{{EnvironmentUrl}}"
+							],
+							"path": [
+								"api",
+								"Operaciones"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "4-OK_PageNumber_Ingresado",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{EnvironmentUrl}}/api/Operaciones?pageNumber=1",
+							"host": [
+								"{{EnvironmentUrl}}"
+							],
+							"path": [
+								"api",
+								"Operaciones"
+							],
+							"query": [
+								{
+									"key": "pageNumber",
+									"value": "1"
+								}
 							]
 						}
 					},
