@@ -16,7 +16,7 @@ namespace Metafar.ATM.Challenge.Application.UseCase.Login
     public class LoginCmdHandler : IRequestHandler<LoginCmd, ATMResponse<LoginCmdResponse>>
     {
         private readonly IMemoryCacheRepository _memoryCacheRepository;
-        private readonly IRepository<Cuenta> _repository;
+        private readonly IATMRepository<Cuenta> _repository;
         private readonly ITokenGenerator _tokenGenerator;
         private readonly ILogger<LoginCmdHandler> _logger;
 
@@ -24,7 +24,7 @@ namespace Metafar.ATM.Challenge.Application.UseCase.Login
 
         public LoginCmdHandler(
             IMemoryCacheRepository memoryCacheRepository,
-            IRepository<Cuenta> repository,
+            IATMRepository<Cuenta> repository,
             ITokenGenerator tokenGenerator, 
             IOptions<LoginSettings> options,
             ILogger<LoginCmdHandler> logger)

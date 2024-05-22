@@ -13,11 +13,11 @@ namespace Metafar.ATM.Challenge.Application.UseCase.ExtractSaldo
 {
     public class ExtractSaldoCmdHandler : IRequestHandler<ExtractSaldoCmd, ATMResponse<ExtractSaldoCmdResponse>>
     {
-        private readonly IRepository<Cuenta> _repository;
+        private readonly IATMRepository<Cuenta> _repository;
         private readonly ILogger<ExtractSaldoCmdHandler> _logger;
 
         public ExtractSaldoCmdHandler(
-            IRepository<Cuenta> repository,
+            IATMRepository<Cuenta> repository,
             ILogger<ExtractSaldoCmdHandler> logger)
         {
             _repository = repository;
