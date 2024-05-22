@@ -2,6 +2,6 @@
 {
     public sealed class MemoryCacheSettings
     {
-        public int AbsoluteExpirationRelativeToNowInHours { get; set; }
+        public int AbsoluteExpirationRelativeToNowInSeconds { get; set; }
     }
 }
