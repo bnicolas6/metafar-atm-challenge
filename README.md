@@ -55,7 +55,7 @@ Por defecto, la aplicación está configurada para interactuar con una base de d
 docker build -t sqlserver-image .
 ```
 
-#### El siguiente comando crear un contenedor a partir de la imágen
+#### El siguiente comando crea un contenedor a partir de la imagen
 
 ```bash
 docker run -d -p 1433:1433 --name sqlserver-container sqlserver-image
@@ -105,7 +105,7 @@ dotnet test ./test/Application.Test/Application.Test.csproj
 
 ## ENDPOINTS
 
-#### Para defecto, la dirección web de Swagger es: 
+#### Por defecto, la dirección web de Swagger es: 
     
 ```bash
 https://localhost:7013/swagger/index.html
@@ -117,7 +117,7 @@ La aplicacion expone los siguientes endpoints:
 ### POST api/login
 
 Requiere el ingreso de un 'numeroDeTarjeta' y un 'Pin', caso de haber coincidencia, retorna un Token JWT que encapsula el respectivo 'numeroDeTarjeta'. En caso contrario, si no hay coincidencia, retorna un mensaje de error. 
-Al cuarto intento de acceso fallido de forma consecutiva, la tarjeta vinculada será bloqueada. Por defecto, si 2 intentos de acceso fallidos trascurren en un período menor a 5 minutos, se acumularan. En cambio, si ocurren en un período mayor, no se acumularan. 
+Al cuarto intento de acceso fallido de forma consecutiva, la tarjeta vinculada será bloqueada. Por defecto, si 2 intentos de acceso fallidos trascurren en un período menor a 5 minutos, se acumularán. En cambio, si ocurren en un período mayor, no se acumularán. 
 
 #### Ejemplo de Request (Body)
 
@@ -152,7 +152,7 @@ Requiere el ingreso de un token JWT generado por **POST api/login** y un monto. 
 
 ### GET api/operaciones?pageNumber=1
 
-Requiere el ingreso de un token JWT generado por **POST api/login** y opcionalmente un número de página ('pageNumber'). A partir del numeroDeTarjeta encapsulado en el token, retorna un listado paginado de las operaciones realizadas sobre la cuenta vinculada. La cantidad máxima de de operaciones retornadas por consulta es de 10. Si no se ingresa número de página, el valor por defecto es 1.
+Requiere el ingreso de un token JWT generado por **POST api/login** y opcionalmente un número de página ('pageNumber'). A partir del numeroDeTarjeta encapsulado en el token, retorna un listado paginado de las operaciones realizadas sobre la cuenta vinculada. La cantidad máxima de operaciones retornadas por consulta es de 10. Si no se ingresa número de página, el valor por defecto es 1.
  
 <div style="border: 1px solid #2196F3; padding: 10px; background-color: #E3F2FD;">
     <strong>Nota:</strong> El repositorio cuenta con una collection de Postman para realizar pruebas.
