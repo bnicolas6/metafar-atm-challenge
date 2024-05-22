@@ -27,10 +27,9 @@ namespace Metafar.ATM.Challenge.API.Controllers
         }
 
         /// <summary>
-        /// Consultar saldo de una cuenta
+        /// Obtiene el saldo de una cuenta vinculada a una tarjeta autenticada
         /// </summary>
-        /// <param name="login"></param>
-        /// <returns></returns>
+        /// <returns>El saldo de la cuenta</returns>
         [HttpGet("saldo")]
         [ProducesResponseType(typeof(GetSaldoQryResponse), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(List<ATMError>), StatusCodes.Status500InternalServerError)]
@@ -45,10 +44,10 @@ namespace Metafar.ATM.Challenge.API.Controllers
         }
 
         /// <summary>
-        /// Extraer saldo de una cuenta
+        /// Extraer saldo de una cuenta vinculada a una tarjeta autenticada
         /// </summary>
-        /// <param name="login"></param>
-        /// <returns></returns>
+        /// <param name="extract">El monto a extraer de la cuenta</param>
+        /// <returns>El resultado de la operacion de extraccion</returns>
         [HttpPost("extraer-saldo")]
         [ProducesResponseType(typeof(GetSaldoQryResponse), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(List<ATMError>), StatusCodes.Status502BadGateway)]
