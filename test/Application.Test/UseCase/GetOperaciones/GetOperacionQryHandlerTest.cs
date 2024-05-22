@@ -98,6 +98,7 @@ namespace Application.Test.UseCase.GetOperaciones
             response.Content.TotalRows.Should().Be(TOTAL_ROWS);
         }
 
+        [Fact]
         public async Task Handle_OverflowExceptionThrown_ReturnInternalServerErrorAndErrorMessage()
         {
             //Arrange
@@ -116,6 +117,7 @@ namespace Application.Test.UseCase.GetOperaciones
             response.Errors.Should().NotBeNullOrEmpty();
         }
 
+        [Fact]
         public async Task Handle_ExceptionThrown_ReturnInternalServerErrorAndErrorMessage()
         {
             //Arrange
