@@ -1,5 +1,6 @@
 ﻿using MediatR;
 using Metafar.ATM.Challenge.Application.UseCase.GetOperaciones;
+using Metafar.ATM.Challenge.Application.UseCase.GetOperaciones.Response;
 using Metafar.ATM.Challenge.Application.UseCase.GetSaldo.Response;
 using Metafar.ATM.Challenge.Common.Http;
 using Metafar.ATM.Challenge.Common.Http.Response;
@@ -30,7 +31,7 @@ namespace Metafar.ATM.Challenge.API.Controllers
         /// <param name="pageNumber">El numero de pagina que se desea consultar</param>
         /// <returns>Las operaciones de la cuenta</returns>
         [HttpGet]
-        [ProducesResponseType(typeof(GetSaldoQryResponse), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(GetOperacionesQryResponse), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(List<ATMError>), StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(List<ATMError>), StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> GetOperacionesAsync(int? pageNumber)
