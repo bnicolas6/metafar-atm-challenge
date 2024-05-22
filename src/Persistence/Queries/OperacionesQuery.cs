@@ -69,7 +69,6 @@ namespace Metafar.ATM.Challenge.Persistence.Queries
                     // Leer el total de registros
                     var totalRegistros = await multi.ReadSingleAsync<int>();
 
-                    // Devolver los resultados paginados y el total de registros
                     return (operaciones, totalRegistros);
                 }
             }

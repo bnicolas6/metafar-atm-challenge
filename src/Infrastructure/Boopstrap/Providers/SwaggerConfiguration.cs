@@ -1,9 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Options;
+﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
-using Swashbuckle.AspNetCore.SwaggerGen;
-using System.Reflection;
 
 namespace Metafar.ATM.Challenge.Infrastructure.Boopstrap.Providers
 {
@@ -13,7 +9,7 @@ namespace Metafar.ATM.Challenge.Infrastructure.Boopstrap.Providers
         {
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Mi API", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Metafar ATM Challenge" });
 
                 // Configurar la autenticación JWT
                 c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme

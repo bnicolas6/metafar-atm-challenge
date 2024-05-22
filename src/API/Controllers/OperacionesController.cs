@@ -12,15 +12,14 @@ using System.Threading.Tasks;
 namespace Metafar.ATM.Challenge.API.Controllers
 {
     [ApiConventionType(typeof(DefaultApiConventions))]
-    //[ApiVersion("1")]
-    //[Route("api/v{version:apiVersion}/[controller]")]
+    [Route("api/[controller]")]
     [ApiController]
     [Authorize]
-    public class OperacionController : ATMController
+    public class OperacionesController : ATMController
     {
         private readonly IMediator _mediator;
 
-        public OperacionController(IMediator mediator)
+        public OperacionesController(IMediator mediator)
         {
             _mediator = mediator;
         }
@@ -30,9 +29,9 @@ namespace Metafar.ATM.Challenge.API.Controllers
         /// </summary>
         /// <param name="login"></param>
         /// <returns></returns>
-        [HttpGet("/operaciones")]
+        [HttpGet]
         [ProducesResponseType(typeof(GetSaldoQryResponse), StatusCodes.Status200OK)]
-        [ProducesResponseType(typeof(GetSaldoQryResponse), StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(typeof(List<ATMError>), StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(List<ATMError>), StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> GetOperacionesAsync(int? pageNumber)
         {
