@@ -25,10 +25,10 @@ namespace Metafar.ATM.Challenge.API.Controllers
         }
 
         /// <summary>
-        /// Consultar operaciones
+        /// Obtiene las operaciones de una cuenta vinculada a una tarjeta autenticada
         /// </summary>
-        /// <param name="login"></param>
-        /// <returns></returns>
+        /// <param name="pageNumber">El numero de pagina que se desea consultar</param>
+        /// <returns>Las operaciones de la cuenta</returns>
         [HttpGet]
         [ProducesResponseType(typeof(GetSaldoQryResponse), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(List<ATMError>), StatusCodes.Status400BadRequest)]

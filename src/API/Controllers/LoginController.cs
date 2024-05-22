@@ -24,10 +24,10 @@ namespace Metafar.ATM.Challenge.API.Controllers
         }
 
         /// <summary>
-        /// Obtener Token de Authenticacion
+        /// Devuelve un token JWT
         /// </summary>
-        /// <param name="login"></param>
-        /// <returns></returns>
+        /// <param name="login">La informacion necesaria para la autenticacion</param>
+        /// <returns>Un token JWT</returns>
         [HttpPost("/api/login")]
         [ProducesResponseType(typeof(LoginCmdResponse), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(List<ATMError>), StatusCodes.Status400BadRequest)]
