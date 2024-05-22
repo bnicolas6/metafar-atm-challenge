@@ -1,6 +1,7 @@
 ﻿using MediatR;
 using Metafar.ATM.Challenge.API.ViewModels;
 using Metafar.ATM.Challenge.Application.UseCase.ExtractSaldo;
+using Metafar.ATM.Challenge.Application.UseCase.ExtractSaldo.Response;
 using Metafar.ATM.Challenge.Application.UseCase.GetSaldo;
 using Metafar.ATM.Challenge.Application.UseCase.GetSaldo.Response;
 using Metafar.ATM.Challenge.Common.Http;
@@ -49,7 +50,7 @@ namespace Metafar.ATM.Challenge.API.Controllers
         /// <param name="extract">El monto a extraer de la cuenta</param>
         /// <returns>El resultado de la operacion de extraccion</returns>
         [HttpPost("extraer-saldo")]
-        [ProducesResponseType(typeof(GetSaldoQryResponse), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ExtractSaldoCmdResponse), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(List<ATMError>), StatusCodes.Status502BadGateway)]
         [ProducesResponseType(typeof(List<ATMError>), StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> ExtractSaldoAsync([FromBody] ExtractViewModel extract)
