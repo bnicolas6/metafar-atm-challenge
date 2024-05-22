@@ -27,7 +27,9 @@ Aplicación desarrollada para simular un cajero automático (ATM) como parte de 
 git clone https://github.com/bnicolas6/metafar-atm-challenge.git
 ```
 
-Una vez clonado el repositorio, desde la línea de comandos, se debe posicionar en la carpeta raíz del mismo.
+<div style="border: 1px solid #2196F3; padding: 10px; background-color: #E3F2FD;">
+    <strong>Nota:</strong> Una vez clonado el repositorio, desde la línea de comandos, se debe posicionar en la carpeta raíz del mismo para ejecutar los siguientes comandos.
+</div>
 
 ---
 
